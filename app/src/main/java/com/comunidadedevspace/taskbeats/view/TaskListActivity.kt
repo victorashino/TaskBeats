@@ -1,4 +1,4 @@
-package com.comunidadedevspace.taskbeats
+package com.comunidadedevspace.taskbeats.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -10,11 +10,13 @@ import android.widget.LinearLayout
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.room.Room
+import com.comunidadedevspace.taskbeats.R
+import com.comunidadedevspace.taskbeats.data.AppDataBase
+import com.comunidadedevspace.taskbeats.data.Task
 import com.comunidadedevspace.taskbeats.databinding.ActivityTaskListBinding
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers.IO
-import kotlinx.coroutines.Dispatchers.Main
 import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
@@ -51,7 +53,7 @@ class MainActivity : AppCompatActivity() {
             when (taskAction.actionType) {
                 ActionType.DELETE.name -> deleteById(task.id)
                 ActionType.CREATE.name -> insertIntoDataBase(task)
-                ActionType.UPEDATE.name -> updateIntoDataBase(task)
+                ActionType.UPDATE.name -> updateIntoDataBase(task)
             }
         }
     }

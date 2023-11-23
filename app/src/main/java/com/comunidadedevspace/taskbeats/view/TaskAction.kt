@@ -1,5 +1,6 @@
-package com.comunidadedevspace.taskbeats
+package com.comunidadedevspace.taskbeats.view
 
+import com.comunidadedevspace.taskbeats.data.Task
 import java.io.Serializable
 
 data class TaskAction(

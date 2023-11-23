@@ -1,19 +1,17 @@
-package com.comunidadedevspace.taskbeats
+package com.comunidadedevspace.taskbeats.view
 
-import android.annotation.SuppressLint
-import android.app.ActionBar
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.Layout
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
-import android.widget.Toolbar
-import com.comunidadedevspace.taskbeats.MainActivity.Companion.TASK_ACTION_RESULT
+import com.comunidadedevspace.taskbeats.R
+import com.comunidadedevspace.taskbeats.view.MainActivity.Companion.TASK_ACTION_RESULT
+import com.comunidadedevspace.taskbeats.data.Task
 import com.comunidadedevspace.taskbeats.databinding.ActivityTaskDetailBinding
 import com.google.android.material.snackbar.Snackbar
 
@@ -61,7 +59,7 @@ class TaskDetailActivity : AppCompatActivity() {
                 if (task == null) {
                     addOrUpdateTask(0, title, ActionType.CREATE, desc)
                 } else {
-                    addOrUpdateTask(task!!.id, title, ActionType.UPEDATE, desc)
+                    addOrUpdateTask(task!!.id, title, ActionType.UPDATE, desc)
                 }
 
             } else {

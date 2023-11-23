@@ -1,10 +1,10 @@
-package com.comunidadedevspace.taskbeats
+package com.comunidadedevspace.taskbeats.view
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
-import androidx.recyclerview.widget.RecyclerView
+import com.comunidadedevspace.taskbeats.data.Task
 import com.comunidadedevspace.taskbeats.databinding.ItemTaskBinding
 
 class TaskListAdapter(
