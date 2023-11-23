@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".TaskDetailActivity">
+
+    <include layout="@layout/toolbar" />
+
+    <TextView
+        style="@style/Title3"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="8dp"
+        android:text="Title" />
+
+    <EditText
+        android:id="@+id/edit_text_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="8dp"
+        android:layout_marginBottom="15dp"
+        android:hint="Adicione um nome para sua tarefa"
+        android:textSize="18dp" />
+
+    <TextView
+        style="@style/Title3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="8dp"
+        android:text="Description" />
+
+    <EditText
+        android:id="@+id/edit_task_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="8dp"
+        android:hint="Adicione uma descrição para sua tarefa"
+        android:textSize="18dp" />
+
+    <Button
+        android:id="@+id/btn_done"
+        style="@style/ButtomPrimary"
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="8dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="Concluir"
+        android:textSize="18sp" />
+
+
+</LinearLayout>
