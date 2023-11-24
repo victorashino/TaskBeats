@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".view.MainActivity">
+    tools:context=".view.TaskListActivity">
 
     <include layout="@layout/toolbar" />
 
@@ -51,8 +51,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginHorizontal="24dp"
-            android:layout_marginTop="?attr/actionBarSize"
-            android:layout_marginBottom="24dp"
+            android:layout_marginTop="84dp"
             android:gravity="center"
             android:text="Adicione uma Tarefa" />
 

@@ -1,6 +1,5 @@
 package com.comunidadedevspace.taskbeats.view
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
@@ -9,17 +8,14 @@ import android.view.View
 import android.widget.LinearLayout
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.room.Room
+import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import com.comunidadedevspace.taskbeats.R
-import com.comunidadedevspace.taskbeats.data.AppDataBase
 import com.comunidadedevspace.taskbeats.data.Task
 import com.comunidadedevspace.taskbeats.databinding.ActivityTaskListBinding
 import com.google.android.material.snackbar.Snackbar
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers.IO
-import kotlinx.coroutines.launch
 
-class MainActivity : AppCompatActivity() {
+class TaskListActivity : AppCompatActivity() {
 
     companion object {
         const val TASK_ACTION_RESULT = "TASK_ACTION_RESULT"
@@ -28,15 +24,9 @@ class MainActivity : AppCompatActivity() {
     private lateinit var ctnContent: LinearLayout
     private val adapter: TaskListAdapter = TaskListAdapter(::onListItemClicked)
 
-    private val dataBase by lazy {
-        Room.databaseBuilder(
-            applicationContext,
-            AppDataBase::class.java, "taskbeats-database"
-        ).build()
-    }
 
-    private val dao by lazy {
-        dataBase.taskDao()
+    private val viewModel: TaskListViewModel by lazy {
+        TaskListViewModel.create(application)
     }
 
     private lateinit var binding: ActivityTaskListBinding
@@ -48,13 +38,7 @@ class MainActivity : AppCompatActivity() {
             val taskAction = requireNotNull(
                 data?.getSerializableExtra(TASK_ACTION_RESULT) as TaskAction?
             )
-            val task: Task = taskAction.task
-
-            when (taskAction.actionType) {
-                ActionType.DELETE.name -> deleteById(task.id)
-                ActionType.CREATE.name -> insertIntoDataBase(task)
-                ActionType.UPDATE.name -> updateIntoDataBase(task)
-            }
+            viewModel.execute(taskAction)
         }
     }
 
@@ -66,7 +50,6 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(findViewById(R.id.toolbar))
         supportActionBar?.setDisplayShowTitleEnabled(false)
 
-        listFromDataBase()
         ctnContent = binding.ctnContent
 
         binding.recylerTaskList.adapter = adapter
@@ -77,39 +60,26 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun insertIntoDataBase(task: Task) {
-        CoroutineScope(IO).launch {
-            dao.insert(task)
-            listFromDataBase()
-        }
-    }
-
-    private fun updateIntoDataBase(task: Task) {
-        CoroutineScope(IO).launch {
-            dao.update(task)
-            listFromDataBase()
-        }
+    override fun onStart() {
+        super.onStart()
+        listFromDataBase()
     }
 
     private fun deleteAll() {
-        CoroutineScope(IO).launch {
-            dao.deleteAll()
-            listFromDataBase()
-        }
-    }
-
-    private fun deleteById(id: Int) {
-        CoroutineScope(IO).launch {
-            dao.deleteById(id)
-            listFromDataBase()
-        }
+        val taskAction = TaskAction(null, ActionType.DELETE_ALL.name)
+        viewModel.execute(taskAction)
     }
 
     private fun listFromDataBase() {
-        CoroutineScope(IO).launch {
-            val myDataBaseList: List<Task> = dao.getAll()
-            adapter.submitList(myDataBaseList)
+        val listObserver = Observer<List<Task>> { listTasks ->
+            if (listTasks.isEmpty()) {
+                ctnContent.visibility = View.VISIBLE
+            } else {
+                ctnContent.visibility = View.GONE
+            }
+            adapter.submitList(listTasks)
         }
+        viewModel.taskListLiveData.observe(this@TaskListActivity, listObserver)
     }
 
     private fun showMessage(view: View, message: String) {

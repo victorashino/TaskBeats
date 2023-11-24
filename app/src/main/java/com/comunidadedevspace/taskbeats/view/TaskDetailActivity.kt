@@ -10,7 +10,7 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
 import com.comunidadedevspace.taskbeats.R
-import com.comunidadedevspace.taskbeats.view.MainActivity.Companion.TASK_ACTION_RESULT
+import com.comunidadedevspace.taskbeats.view.TaskListActivity.Companion.TASK_ACTION_RESULT
 import com.comunidadedevspace.taskbeats.data.Task
 import com.comunidadedevspace.taskbeats.databinding.ActivityTaskDetailBinding
 import com.google.android.material.snackbar.Snackbar
