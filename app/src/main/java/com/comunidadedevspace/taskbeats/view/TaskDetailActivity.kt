@@ -1,6 +1,5 @@
 package com.comunidadedevspace.taskbeats.view
 
-import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -9,9 +8,9 @@ import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
+import androidx.activity.viewModels
 import com.comunidadedevspace.taskbeats.R
-import com.comunidadedevspace.taskbeats.view.TaskListActivity.Companion.TASK_ACTION_RESULT
-import com.comunidadedevspace.taskbeats.data.Task
+import com.comunidadedevspace.taskbeats.data.local.Task
 import com.comunidadedevspace.taskbeats.databinding.ActivityTaskDetailBinding
 import com.google.android.material.snackbar.Snackbar
 
@@ -27,6 +26,10 @@ class TaskDetailActivity : AppCompatActivity() {
                 }
             return intent
         }
+    }
+
+    private val viewModel: TaskDetailViewModel by viewModels {
+        TaskDetailViewModel.getVMFactory(application)
     }
 
     private var task: Task? = null
@@ -61,7 +64,6 @@ class TaskDetailActivity : AppCompatActivity() {
                 } else {
                     addOrUpdateTask(task!!.id, title, ActionType.UPDATE, desc)
                 }
-
             } else {
                 showMessage(btnDone, "Fields are required")
             }
@@ -75,7 +77,7 @@ class TaskDetailActivity : AppCompatActivity() {
         description: String
     ) {
         val task = Task(id, title, description)
-        returnAction(task, actionType)
+        performAction(task, actionType)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -88,7 +90,7 @@ class TaskDetailActivity : AppCompatActivity() {
         return when (item.itemId) {
             R.id.delete_task -> {
                 if (task != null) {
-                    returnAction(task!!, ActionType.DELETE)
+                    performAction(task!!, ActionType.DELETE)
                 } else {
                     showMessage(binding.btnDone, "Item not found")
                 }
@@ -99,13 +101,9 @@ class TaskDetailActivity : AppCompatActivity() {
         }
     }
 
-    private fun returnAction(task: Task, actionType: ActionType) {
-        val intent = Intent()
-            .apply {
-                val taskAction = TaskAction(task, actionType.name)
-                putExtra(TASK_ACTION_RESULT, taskAction)
-            }
-        setResult(Activity.RESULT_OK, intent)
+    private fun performAction(task: Task, actionType: ActionType) {
+        val taskAction = TaskAction(task, actionType.name)
+        viewModel.execute(taskAction)
         finish()
     }
 

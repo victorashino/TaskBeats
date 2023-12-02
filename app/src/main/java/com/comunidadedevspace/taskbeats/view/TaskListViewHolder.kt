@@ -2,7 +2,7 @@ package com.comunidadedevspace.taskbeats.view
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
-import com.comunidadedevspace.taskbeats.data.Task
+import com.comunidadedevspace.taskbeats.data.local.Task
 import com.comunidadedevspace.taskbeats.databinding.ItemTaskBinding
 
 class TaskListViewHolder(
