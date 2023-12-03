@@ -7,17 +7,24 @@ TaskBeats foi um aplicativo que desenvolvi no AndroidOne do DevSpace
 <img src="/result/empty.png" width="200">&emsp;<img src="/result/task_detail.png" width="200">&emsp;<img src="/result/task_detail_sample.png" width="200">&emsp;<img src="/result/task_list.png" width="200">&emsp;<img src="/result/news_list.png" width="200">
 
 ## Tecnologias
-* Kotlin
-* XML
-* Fragments
-* RecyclerView
-* BottomBar
-* FloatActionButton
-* ViewBinding
-* Room
-* MVVM
-* retrofit
-* mockito
+* * Kotlin
+* Activity/Fragment para host de telas
+* ViewGroup
+    * RelativeLayout
+    * LinearLayout
+- Components de UI
+    - RecyclerView
+    - TextView
+    - EditText
+    - FloatActionButton
+    - BottomAppBar
+- Toast para display de mensagens
+- ViewBinding para recuperar components de UI
+- Room
+- retrofit
+- MVVM
+- mockito
+- Testes
 
 
 ### TODO
