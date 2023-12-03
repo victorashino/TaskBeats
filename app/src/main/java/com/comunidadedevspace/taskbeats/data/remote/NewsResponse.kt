@@ -10,9 +10,12 @@ class NewsResponse(
 data class NewsDto(
     @SerializedName("uuid")
     val id: String,
+
     @SerializedName("snippet")
     val content: String,
+
     @SerializedName("image_url")
     val imageUrl: String,
+
     val title: String
 )

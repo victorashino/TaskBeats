@@ -10,15 +10,15 @@
         android:id="@+id/fragment_container_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout="@layout/fragment_task_list" />
+        tools:layout="@layout/fragment_task_list"/>
 
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bottom_bar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:fabCradleVerticalOffset="10dp"
+        android:layout_height="64dp"
+        app:fabCradleVerticalOffset="0dp"
         app:fabCradleRoundedCornerRadius="12dp"
-        app:fabCradleMargin="10dp"
+        app:fabCradleMargin="12dp"
         android:layout_gravity="bottom">
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
