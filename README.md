@@ -4,7 +4,7 @@ TaskBeats foi um aplicativo que desenvolvi no AndroidOne do DevSpace
 
 ## :camera_flash: Screenshots
 <!-- You can add more screenshots here if you like -->
-<img src="/result/empty.png" width="200">&emsp;<img src="/result/task_detail.png" width="200">&emsp;<img src="/result/task_detail_sample.png" width="200">&emsp;<img src="/result/task_list.png" width="200">&emsp;<img src="/result/news_list.png" width="200">
+<img src="/result/empty.png" width="200">&emsp;<img src="/result/task_detail.png" width="200">&emsp;<img src="/result/task_list.png" width="200">&emsp;<img src="/result/news_list.png" width="200">
 
 ## Tecnologias
 * * Kotlin
