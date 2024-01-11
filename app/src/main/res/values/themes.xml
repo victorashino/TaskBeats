@@ -2,8 +2,8 @@
     <!-- Base application theme. -->
     <style name="Theme.TaskBeats" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/pink_300</item>
-        <item name="colorPrimaryVariant">@color/pink_500</item>
+        <item name="colorPrimary">@color/blue_300</item>
+        <item name="colorPrimaryVariant">@color/blue_500</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/brown_700</item>
@@ -13,7 +13,7 @@
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
-    
+
     <style name="Title3" parent="Widget.AppCompat.TextView">
         <item name="fontFamily">@font/rubik_medium</item>
         <item name="android:textColor">@color/brown_900</item>
@@ -35,6 +35,6 @@
 
     <style name="Fab" parent="Widget.Design.FloatingActionButton">
         <item name="tint">@color/brown_900</item>
-        <item name="backgroundTint">@color/pink_300</item>
+        <item name="backgroundTint">@color/blue_300</item>
     </style>
 </resources>

@@ -2,8 +2,8 @@
     <!-- Base application theme. -->
     <style name="Theme.TaskBeats" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/pink_100</item>
-        <item name="colorPrimaryVariant">@color/pink_500</item>
+        <item name="colorPrimary">@color/blue_100</item>
+        <item name="colorPrimaryVariant">@color/blue_500</item>
         <item name="colorOnPrimary">@color/black</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/brown_700</item>
@@ -35,7 +35,7 @@
 
     <style name="Fab" parent="Widget.Design.FloatingActionButton">
         <item name="tint">@color/brown_900</item>
-        <item name="backgroundTint">@color/pink_100</item>
+        <item name="backgroundTint">@color/blue_100</item>
     </style>
 
 </resources>

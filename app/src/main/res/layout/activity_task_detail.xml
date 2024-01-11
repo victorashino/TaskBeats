@@ -14,14 +14,14 @@
         android:layout_width="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="8dp"
+        android:layout_marginHorizontal="12dp"
         android:text="Title" />
 
     <EditText
         android:id="@+id/edit_text_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="8dp"
+        android:layout_marginHorizontal="12dp"
         android:layout_marginBottom="15dp"
         android:hint="Adicione um nome para sua tarefa"
         android:textSize="18dp" />
@@ -30,14 +30,14 @@
         style="@style/Title3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="8dp"
+        android:layout_marginHorizontal="12dp"
         android:text="Description" />
 
     <EditText
         android:id="@+id/edit_task_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="8dp"
+        android:layout_marginHorizontal="12dp"
         android:hint="Adicione uma descrição para sua tarefa"
         android:textSize="18dp" />
 
@@ -45,7 +45,8 @@
         android:id="@+id/btn_done"
         style="@style/ButtomPrimary"
         android:layout_width="match_parent"
-        android:layout_marginHorizontal="8dp"
+        android:layout_marginHorizontal="12dp"
+        android:paddingVertical="16dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
         android:text="Concluir"

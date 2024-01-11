@@ -14,7 +14,7 @@ class TaskListViewHolder(
     fun bind(task: Task, openTaskDetailView: (task: Task) -> Unit) {
 
         bind.textTaskTitle.text = task.title
-        bind.textTaskDescription.text = "${task.id}- ${task.description}"
+        bind.textTaskDescription.text = task.description
 
         view.setOnClickListener {
             openTaskDetailView.invoke(task)
